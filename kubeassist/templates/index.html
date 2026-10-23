@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KubeAssist</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Controls">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">⎈</span>
+        <div>
+          <h1>KubeAssist</h1>
+          <p>Chat with your cluster</p>
+        </div>
+      </div>
+
+      <label class="field-label" for="cluster">Cluster</label>
+      <select id="cluster" class="select"></select>
+      <p id="status" class="status" role="status"></p>
+
+      <h2 class="section-title">Try asking</h2>
+      <div id="suggestions" class="chips"></div>
+
+      <h2 class="section-title">Recent commands</h2>
+      <ul id="history" class="history"><li class="muted">Nothing run yet.</li></ul>
+    </aside>
+
+    <main class="main">
+      <div id="feed" class="feed" aria-live="polite"></div>
+      <form id="composer" class="composer" autocomplete="off">
+        <input id="message" type="text" maxlength="1000"
+               placeholder="Ask a question, or describe what you want to do…" aria-label="Message">
+        <button type="submit" id="send" class="btn primary">Send</button>
+      </form>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

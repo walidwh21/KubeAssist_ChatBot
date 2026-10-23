@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>How a request is handled</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#475569"/>
+    </marker>
+    <style>
+      .t{font-size:14px;font-weight:600;fill:#0f172a}
+      .s{font-size:12px;fill:#475569}
+      .ln{stroke:#475569;stroke-width:1.6;fill:none;marker-end:url(#a)}
+      .n{fill:#fff;stroke:#94a3b8;stroke-width:1.5}
+      .d{fill:#fef9c3;stroke:#eab308;stroke-width:1.5}
+      .ok{fill:#dcfce7;stroke:#22c55e;stroke-width:1.5}
+      .no{fill:#fee2e2;stroke:#ef4444;stroke-width:1.5}
+      .y{font-size:11.5px;font-weight:600;fill:#166534}
+      .x{font-size:11.5px;font-weight:600;fill:#b91c1c}
+      .g{font-size:11.5px;font-weight:600;fill:#475569}
+    </style>
+  </defs>
+  <rect width="960" height="430" rx="14" fill="#f8fafc"/>
+
+  <!-- row 1: main path -->
+  <rect class="n" x="20" y="60" width="130" height="60" rx="10"/>
+  <text x="85" y="86" text-anchor="middle" class="t">User message</text>
+  <text x="85" y="104" text-anchor="middle" class="s">+ selected cluster</text>
+
+  <rect class="n" x="200" y="60" width="150" height="60" rx="10"/>
+  <text x="275" y="86" text-anchor="middle" class="t">Plan request</text>
+  <text x="275" y="104" text-anchor="middle" class="s">planner.py</text>
+
+  <polygon class="d" points="480,40 560,90 480,140 400,90"/>
+  <text x="480" y="87" text-anchor="middle" class="t">Command</text>
+  <text x="480" y="104" text-anchor="middle" class="t">or answer?</text>
+
+  <polygon class="d" points="680,40 760,90 680,140 600,90"/>
+  <text x="680" y="87" text-anchor="middle" class="t">Guard</text>
+  <text x="680" y="104" text-anchor="middle" class="t">allows it?</text>
+
+  <rect class="n" x="810" y="60" width="130" height="60" rx="10"/>
+  <text x="875" y="86" text-anchor="middle" class="t">Proposal card</text>
+  <text x="875" y="104" text-anchor="middle" class="s">risk badge shown</text>
+
+  <path class="ln" d="M150 90H200"/>
+  <path class="ln" d="M350 90H400"/>
+  <path class="ln" d="M560 90H600"/>
+  <text x="580" y="80" text-anchor="middle" class="g">command</text>
+  <path class="ln" d="M760 90H810"/>
+  <text x="785" y="80" text-anchor="middle" class="y">yes</text>
+
+  <!-- planner strategies -->
+  <rect class="n" x="150" y="190" width="250" height="110" rx="10" stroke-dasharray="5 4"/>
+  <text x="275" y="214" text-anchor="middle" class="t">Strategies, in order</text>
+  <text x="170" y="240" class="s">1. Typed “kubectl …” → used as written</text>
+  <text x="170" y="260" class="s">2. Local model + knowledge-base notes</text>
+  <text x="170" y="280" class="s">3. Offline rules, then plain notes</text>
+  <path class="ln" d="M275 120V190" stroke-dasharray="4 4"/>
+
+  <!-- answer -->
+  <rect class="ok" x="415" y="190" width="130" height="60" rx="10"/>
+  <text x="480" y="216" text-anchor="middle" class="t">Answer in chat</text>
+  <text x="480" y="234" text-anchor="middle" class="s">no command run</text>
+  <path class="ln" d="M480 140V190"/>
+  <text x="490" y="168" class="y">answer</text>
+
+  <!-- blocked -->
+  <rect class="no" x="615" y="190" width="130" height="60" rx="10"/>
+  <text x="680" y="216" text-anchor="middle" class="t">Blocked</text>
+  <text x="680" y="234" text-anchor="middle" class="s">reason shown</text>
+  <path class="ln" d="M680 140V190"/>
+  <text x="690" y="168" class="x">no</text>
+
+  <!-- decision + run -->
+  <rect class="n" x="810" y="190" width="130" height="60" rx="10"/>
+  <text x="875" y="216" text-anchor="middle" class="t">User decides</text>
+  <text x="875" y="234" text-anchor="middle" class="s">Run · Cancel · Retry</text>
+  <path class="ln" d="M875 120V190"/>
+
+  <rect class="ok" x="560" y="320" width="380" height="64" rx="10"/>
+  <text x="750" y="346" text-anchor="middle" class="t">Re-validate → kubectl --context &lt;cluster&gt;</text>
+  <text x="750" y="366" text-anchor="middle" class="s">output returned · audit entry saved</text>
+  <path class="ln" d="M875 250V320"/>
+  <text x="885" y="290" class="y">Run</text>
+</svg>

@@ -1,0 +1,3 @@
+# Optional: semantic retrieval (set KUBEASSIST_VECTOR_SEARCH=1)
+chromadb>=0.5
+sentence-transformers>=3.0
